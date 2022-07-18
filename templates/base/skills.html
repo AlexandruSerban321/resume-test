@@ -1,0 +1,17 @@
+{% load static %}
+{% if all_skill %}
+  {% for category in all_categories_skills %}
+    <div class="skills-prog">  
+          <h3><i class="{{category.icon}}"></i>{{category.name}}</h3>
+        <ul>
+          {% for skill in category.skill_set.all %}
+          <li data-percent="95"><span>{{skill.skill}}</span>
+            <div class="skills-bar">
+              <div class="bar"style="width: {{skill.progresbar}}%; transition-duration: 0.5s;"></div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+    </div>
+  {% endfor %}
+{% endif %}

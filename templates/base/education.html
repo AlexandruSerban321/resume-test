@@ -1,0 +1,20 @@
+{% load static %}
+<div class="edu">
+    <h3><i class="fa fa-graduation-cap"></i>Education</h3>
+    <ul>
+      {% if all_educations %}
+        {% for education in all_educations %}
+          <li><span>{{education.degree}}<br>{{education.field}}</span><small>{{education.institution}}</small>
+              <small>                        
+              {{ education.start_date|date:'M Y'}} -
+              {% if education.end_date is null %}
+                Present
+              {% else %}
+                {{ education.end_date|date:'M Y'}}
+              {% endif %}
+            </small>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+</div>

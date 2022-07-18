@@ -1,0 +1,20 @@
+{% load static %}
+<div class="work">
+    <h3><i class="fa fa-briefcase"></i>Experience</h3>
+    <ul>
+      {% if all_experiences %}
+        {% for experience in all_experiences %}
+          <li><span>{{experience.position}}</span><small>{{experience.company}}</small>
+            <small>
+              {{ experience.start_date|date:'M Y'}} -
+              {% if experience.end_date is null %}
+                Present
+              {% else %}
+                {{ experience.end_date|date:'M Y'}}
+              {% endif %}
+            </small>
+          </li>
+        {% endfor %}
+        {% endif %}
+    </ul>
+</div>
